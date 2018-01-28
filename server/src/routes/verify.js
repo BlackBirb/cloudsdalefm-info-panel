@@ -3,7 +3,7 @@ import fetch from 'snekfetch';
 
 const router = express.Router()
 
-const authorized = ["206908148957708288","198752832491356160","315236783858384897","275542459679899649"]
+const authorized = [] // for unauthorized client testing ["206908148957708288","198752832491356160","315236783858384897","275542459679899649"]
 
 const discordTokens = new Map(
     [

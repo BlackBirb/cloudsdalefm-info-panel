@@ -1,8 +1,7 @@
 {
-  "name": "server",
+  "name": "cloudsdalefm-panel-api",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
