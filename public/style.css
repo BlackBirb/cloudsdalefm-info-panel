@@ -1,0 +1,198 @@
+body, html, #root {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+.App {
+    color: white;
+    background: #214a6b;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.header {
+    width: 100%;
+    height: 42px;
+    padding: 8px 0px;
+    font-size: 14px;
+}
+
+.headerInner {
+    height: 100%;
+    padding: 0 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: stretch;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.headerLogo {
+    height: 42px;
+    width: auto;
+    margin-right: 20px;
+    margin-top: 4px;
+}
+.headerLogo img {
+    transform: translateY(-24px);
+}
+
+.headerLinks {
+    display: flex;
+    flex: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.headerLinks>li a{
+    padding: 15px 15px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.headerLinks>li a:hover {
+    opacity: 1;
+}
+
+
+.loginButton {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    font-weight: 700;
+    padding: 10px;
+    cursor: pointer;
+}
+.loginButton:hover {
+    border-color: white;
+}
+
+.loggedIn {
+    border-radius: 10px;
+    padding: 10px;
+    opacity: .8;
+}
+.loggedIn span {
+    opacity: 1;
+}
+
+.joinButton {
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 6px;
+    background: rgb(161, 161, 161);
+    display: inline-block;
+    cursor: default;
+}
+
+.joinButton.active:hover {
+    transform: translateY(1px)
+}
+
+.joinButton.active {
+    background: rgb(8, 236, 125);
+    cursor: pointer;
+}
+
+.logoutButton {
+    font-size: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease-in;
+    padding: 0px 10px;
+}
+.logoutButton:hover {
+    color: #d47979;
+}
+
+.contentCentered {
+    padding-top: 128px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1.contentHeader {
+    margin: 0px;
+    font-weight: 700;
+}
+
+p.contentDesc {
+    margin: 12px 0px 30px 0px;
+    padding: 0px;
+    max-width: 700px;
+}
+
+/* auth */
+
+.auth.content {
+    padding-top: 128px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p.auth {
+    margin: 5px 0px;
+}
+p.auth.contentHeader {
+    font-weight: 700;
+    font-size: 2em;
+}
+p.auth.contentText {
+    font-size: 1em;
+}
+p.auth.contentError {
+    font-size: 0.9em;
+    color: red;
+}
+
+.auth.contentAnimation {
+    font-size: 72px;
+}
+
+@keyframes magic {
+    40% {
+        transform: translateY(0px)
+    }
+    50% {
+        transform: translateY(-10px)
+    }
+    60% {
+        transform: translateY(0px)
+    }
+}
+
+.auth.contentAnimation > div {
+    display: inline-block;
+    animation: magic 2s infinite;
+    transform: ease-in;
+    font-family: monospace, sans-serif;
+    letter-spacing: 0px;
+}
+
+.auth.contentAnimation > #a {
+    animation-delay: 0s;
+    color: pink;
+}
+.auth.contentAnimation > #b {
+    animation-delay: .1s;
+    color: lightgreen;
+}
+.auth.contentAnimation > #c {
+    animation-delay: .2s;
+    color: lightblue;
+}
