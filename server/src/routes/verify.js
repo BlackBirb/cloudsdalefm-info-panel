@@ -1,21 +1,9 @@
 import express from 'express';
 import fetch from 'snekfetch';
 
+import { discordTokens, authorized, tokens } from '../util/cacheDB'
+
 const router = express.Router()
-
-const authorized = [] // for unauthorized client testing ["206908148957708288","198752832491356160","315236783858384897","275542459679899649"]
-
-const discordTokens = new Map(
-    [
-        ["token", "id"]
-    ]
-)
-
-const tokens = new Map(
-    [
-        ["id", "token"]
-    ]
-)
 
 function createToken() {
     const base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
@@ -44,7 +32,7 @@ router.post("/", async (req, res) => {
     console.log("Request")
     const { credentials } = req.body;
     if(!authorized.includes(credentials.id))
-        return res.status(400).json({user : {valid: false, token: "CHUJ"}, error: "Not Autorized"})
+        return res.status(403).json({user : {valid: false, token: "CHUJ"}, error: "Not Autorized"})
     
     console.log(credentials)
 
@@ -56,7 +44,7 @@ router.post("/", async (req, res) => {
         validID = await askDiscord(credentials.token)
 
     if(validID !== credentials.id) 
-        return res.status(400).json({user: { valid: false, token: "NOPE"}, error: "Invalid credentials"})
+        return res.status(403).json({user: { valid: false, token: "NOPE"}, error: "Invalid credentials"})
 
     let returnToken = createToken()
     if(tokens.has(validID)) {

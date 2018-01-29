@@ -1,5 +1,3 @@
-// install the following packages:
-
 {
   "extends": ["airbnb", "prettier", "prettier/react"],
   "plugins": ["prettier"],
