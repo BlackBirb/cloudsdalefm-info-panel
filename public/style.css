@@ -196,3 +196,56 @@ p.auth.contentError {
     animation-delay: .2s;
     color: lightblue;
 }
+
+.audioPlayer {
+    display: inline-block;
+    background: rgba(66, 112, 148, 0.6);
+    padding: 10px;
+}
+
+.player.top {
+    display: flex;
+    width: 300px;
+}
+
+.player.buttons {
+    min-width: 50px;
+    height: 50px;
+    padding: 5px;
+    background: black;
+}
+
+.player.info {
+    flex: 1 1 auto;
+    max-width: 250px;
+    word-wrap: break-word;
+    margin-left: 10px;
+}
+
+.player.artist {
+   font-weight: bold;
+}
+
+.player.title {
+    padding-left: 10px;
+    font-size: .9em;
+}
+
+.player.slider {
+    margin: 10px;
+    margin-bottom: 0px;
+    background: #9accf5;
+}
+
+.player.sliderInner {
+    height: 10px;
+    background: red;
+}
+
+.player.songInfo {
+    font-size: 0.7em;
+    margin: 5px 0px 0px 5px;
+}
+.player.songInfo > span {
+    font-weight: bold;
+}

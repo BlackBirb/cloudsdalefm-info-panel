@@ -1,30 +1,37 @@
+/* eslint-disable default-case */
 const initialState = { 
-    logged: false,
+    logged: true, // false - don't forget
     username: null,
     discriminator: null,
     discordToken: null,
     id: null,
-    admin: null,
+    admin: true, // null - to fix these xD
     adminToken: null
 }
 
 const userReducer = (state = initialState, action) => {
-    if(action.type === "CHANGE_LOGIN") {
-        state = {...state, logged: action.payload}
-    }
-    else if(action.type === "USER_DATA_UPDATE") {
-        state = {
-            ...state, 
-            id: action.payload.id,
-            username: action.payload.username, 
-            discriminator: action.payload.discriminator,
-            discordToken: action.payload.token
+    switch(action.type) {
+        case "CHANGE_LOGIN": {
+            state = {...state, logged: action.payload}
+            break;
         }
-    } else if(action.type === "ADMIN_AUTH") {
-        state = {
-            ...state,
-            admin: action.payload.admin,
-            adminToken: action.payload.token || null
+        case "USER_DATA_UPDATE": {
+            state = {
+                ...state, 
+                id: action.payload.id,
+                username: action.payload.username, 
+                discriminator: action.payload.discriminator,
+                discordToken: action.payload.token
+            }
+            break;
+        }
+        case "ADMIN_AUTH": {
+            state = {
+                ...state,
+                admin: action.payload.admin,
+                adminToken: action.payload.token || null
+            }
+            break;
         }
     }
     return state

@@ -1,31 +1,12 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchUserData, authAsAdmin } from '../../actions/userActions'
 
 import { JoinButton } from '../Buttons'
 import Header from '../Header'
 
 class HomePage extends React.Component {
-
-    componentWillMount() {
-        const token = localStorage.getItem("token")
-        if(token && !this.props.user.logged) {
-            this.props.dispatch(fetchUserData(token))
-        }
-
-        return null;
-    }
-
     render() {
-
-        if(this.props.user.logged && this.props.user.discordToken && this.props.user.admin === null) {
-            this.props.dispatch(authAsAdmin({
-                id: this.props.user.id, 
-                token: this.props.user.discordToken
-            }))
-        }
-
         const links = [
             { url: "https://www.facebook.com/cloudsdaleFM.net", name: "facebook" },
             { url: "https://twitter.com/cloudsdalefm", name: "twitter" },

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 
 import Header from '../Header'
+import Player from '../Player'
 
 class LivePage extends React.Component {
     render() {
@@ -11,6 +12,7 @@ class LivePage extends React.Component {
             <Header>
                 <li><Link to="/">Główna</Link></li>
             </Header>
+            <Player />
         </div>
     }
 }

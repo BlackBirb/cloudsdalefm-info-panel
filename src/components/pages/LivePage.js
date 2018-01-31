@@ -6,6 +6,7 @@ import Header from '../Header'
 
 class LivePage extends React.Component {
     render() {
+        console.log("Live page!")
         if(!this.props.user.logged) return <Redirect to="/" />
         if(this.props.user.admin) return <Redirect to="/live/admin" />
         return <div>
