@@ -26,6 +26,32 @@ export function updateUserData(data) {
     }
 }
 
+export function logoutUser() {
+    return dispatch => {
+        localStorage.clear()
+        dispatch({
+            type: "CHANGE_LOGIN",
+            payload: false
+        })
+        dispatch({
+            type: "USER_DATA_UPDATE",
+            payload: {
+                id: null,
+                username: null,
+                discriminator: null
+            }
+        })
+        dispatch({
+            type: "ADMIN_AUTH",
+            payload: {
+                admin: false, 
+                token: null
+            }
+        })
+
+    }
+}
+
 export function fetchUserData(token) {
     return dispatch => {
         fetch(DISCORD_USER_DATA_URL, {

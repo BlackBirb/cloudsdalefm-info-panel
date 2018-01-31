@@ -1,7 +1,6 @@
 /* eslint-disable default-case */
 const initialState = {
     status: "PAUSED",
-    volume: 50,
     track: {
         title: "Nic nie gramy!",
         artist: "Error",
@@ -14,13 +13,6 @@ const playerReducer = (state = initialState, action) => {
     switch(action.type) {
         case "STATUS_CHANGE": {
             state = {...state, status: action.payload}
-            break;
-        }
-        case "VOLUME_CHANGE": {
-            let volume = action.payload
-            if(volume > 100) volume = 100
-            else if(volume < 0) volume = 0
-            state = {...state, volume }
             break;
         }
         case "TITLE_CHANGE": {

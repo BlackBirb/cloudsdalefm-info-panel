@@ -212,8 +212,35 @@ p.auth.contentError {
     min-width: 50px;
     height: 50px;
     padding: 5px;
-    background: black;
+    border-radius: 2px;
 }
+
+.player.buttons:hover {
+    background: #214a6b75;
+}
+.player.buttons:active {
+    background: #214a6b;
+}
+
+#PAUSED.buttons {
+    background: rgb(183, 188, 196);
+}
+#PLAYING.buttons {
+    background: #00f076;
+}
+#LOADING.buttons {
+    background:#2979b9;
+}
+#ERROR.buttons {
+    background: #f63a45;
+}
+/**
+ * status can be:
+ * PAUSED
+ * PLAYING
+ * LOADING
+ * ERROR
+ */
 
 .player.info {
     flex: 1 1 auto;
@@ -235,11 +262,14 @@ p.auth.contentError {
     margin: 10px;
     margin-bottom: 0px;
     background: #9accf5;
+    overflow: hidden;
+    border-radius: 5px;
 }
 
 .player.sliderInner {
     height: 10px;
-    background: red;
+    background: #00adff;
+    pointer-events: none;
 }
 
 .player.songInfo {

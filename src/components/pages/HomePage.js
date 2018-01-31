@@ -5,7 +5,15 @@ import { connect } from 'react-redux';
 import { JoinButton } from '../Buttons'
 import Header from '../Header'
 
+import { fetchUserData } from '../../actions/userActions'
+
 class HomePage extends React.Component {
+    componentWillMount() { // because redirect after authorize doesn't run this in APP and i'm too lazy to find better way
+        const token = localStorage.getItem("token")
+        if (token && !this.props.user.logged) {
+        this.props.dispatch(fetchUserData(token))
+        }
+    }
     render() {
         const links = [
             { url: "https://www.facebook.com/cloudsdaleFM.net", name: "facebook" },

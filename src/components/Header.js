@@ -1,16 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { setLogged, updateUserData, updateAdminData } from '../actions/userActions'
+import { logoutUser } from '../actions/userActions'
 import { LogoutButton, LoginButton } from './Buttons'
 
 class Header extends React.Component {
 
     logoutUser = () => {
-        localStorage.clear()
-        this.props.dispatch(setLogged(false))
-        this.props.dispatch(updateUserData({}))
-        this.props.dispatch(updateAdminData({admin: false, token: null}))
+        this.props.dispatch(logoutUser())
     }
 
     render() {

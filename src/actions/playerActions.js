@@ -1,24 +1,46 @@
 /* eslint-disable import/prefer-default-export */
 import api from '../Api/api'
 
-export function getLiveData() { 
+export function setStatus(status) {
+    return {
+        type: "STATUS_CHANGE",
+        payload: status
+    }
+}
+
+export function setLiveData(data) {
+    return {
+        type: "DATA_UPDATE", payload: {
+            title: data.title,
+            artist: data.artist,
+            likes: data.likes,
+            listeners: data.listeners
+        }
+    }
+}
+
+export function getLiveData() {
     return dispatch => {
         api.player.nowPlaying()
             .then(data => {
-                dispatch({type: "DATA_UPDATE", payload: {
-                    title: data.title,
-                    artist: data.artist,
-                    likes: data.likes,
-                    listeners: data.listeners
-                }})
+                dispatch({
+                    type: "DATA_UPDATE", payload: {
+                        title: data.title,
+                        artist: data.artist,
+                        likes: data.likes,
+                        listeners: data.listeners
+                    }
+                })
             })
             .catch(() => {
-                dispatch({type: "DATA_UPDATE", payload: {
-                    title: "Nic nie gramy",
-                    artist: "Error",
-                    likes: 0,
-                    listeners: 0
-                }})
+                dispatch({
+                    type: "DATA_UPDATE", payload: {
+                        title: "Nic nie gramy",
+                        artist: "Error",
+                        likes: 0,
+                        listeners: 0
+                    }
+                })
             })
     }
 }

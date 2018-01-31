@@ -29,7 +29,7 @@ class App extends React.Component {
     return (<div className="App">
       <Route path="/" exact component={HomePage} />
       <Route path="/oauth2/authorize" component={AuthPage} />
-      <Route path="/live" component={LivePage} />
+      <Route path="/live" exact component={LivePage} />
       <Route path="/live/admin" component={AdminPage} />
     </div>
     )
