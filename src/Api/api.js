@@ -3,7 +3,9 @@ import axios from 'axios';
 export default {
     user: {
         login: credentials => 
-            axios.post("/api/verify", { credentials }).then(res => res.data.user)
+            axios.post("/api/verify", { credentials }).then(res => res.data.user),
+        getConnectDetails: (token) =>
+            axios.get("/api/admin/connectiondetails", { headers: {'Authorization': token} }).then(res => res.data)
     },
     player: { // remove IP
         nowPlaying: () => 

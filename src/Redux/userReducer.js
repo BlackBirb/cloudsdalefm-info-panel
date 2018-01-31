@@ -6,7 +6,13 @@ const initialState = {
     discordToken: null,
     id: null,
     admin: true, // null - to fix these xD
-    adminToken: null
+    adminToken: 'jYU5dXeXDL2c9EFTrQ5y2lg4ThkoVU7L',
+    connData: {
+        host: null, 
+        port: 8080, 
+        login: null, 
+        pass: null
+    }
 }
 
 const userReducer = (state = initialState, action) => {
@@ -32,6 +38,14 @@ const userReducer = (state = initialState, action) => {
                 adminToken: action.payload.token || null
             }
             break;
+        }
+        case "UPDATE_LOGIN_DATA": {
+            state = {
+                ...state,
+                connData: {
+                    ...action.payload
+                }
+            }
         }
     }
     return state

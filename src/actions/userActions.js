@@ -120,3 +120,15 @@ export function authAsAdmin(credentials) {
             })
     }
 }
+
+export function connectionDetails(token) {
+    return dispatch => {
+        api.user.getConnectDetails(token)
+            .then(data => {
+                dispatch({
+                    type: "UPDATE_LOGIN_DATA",
+                    payload: data
+                })
+            })
+    }
+} 
