@@ -1,8 +1,8 @@
 
 // Token request =
 export const API_ENDPOINT = 'https://discordapp.com/api/oauth2/token'
-export const CLIENT_ID = '352411517599350785'
-export const CLIENT_SECRET = 's22H2iktkIW55QUYs-jqcLfS1I8DmQLI'
+export const CLIENT_ID = 'emm'
+export const CLIENT_SECRET = 'fuck'
 
 // not-local
 // export const REDIRECT_URL = "http://server.theblackkingdom.ovh/oauth2/authorize"
