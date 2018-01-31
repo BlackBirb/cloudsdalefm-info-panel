@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import HomePage from './components/pages/HomePage';
 import AuthPage from './components/pages/AuthPage';
 import LivePage from './components/pages/LivePage';
-import AdminPage from './components/pages/AdminPage';
+import AdminPage from './components/pages/AdminPage/AdminPage';
 
 import { fetchUserData, authAsAdmin } from './actions/userActions'
 

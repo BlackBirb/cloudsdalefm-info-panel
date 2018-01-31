@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 
-import Header from '../Header'
-import Player from '../Player'
+import Header from '../../Header'
+import Player from './Player'
 
 class LivePage extends React.Component {
     render() {

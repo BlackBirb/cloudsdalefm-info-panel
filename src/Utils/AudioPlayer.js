@@ -53,9 +53,9 @@ class AudioPlayer {
     }
 
     get volume() {
-        return stream.volume *100
+        return stream.volume*100
     }
-    
+
     refresh() {
         console.log("Refresh", this.refreshing)
         if(this.refreshing) {
@@ -100,6 +100,7 @@ class AudioPlayer {
 
 const audioplayer = new AudioPlayer()
 audioplayer.update()
+audioplayer.setVolume(50)
 
 store.subscribe(() => {
     const { status } = store.getState().player

@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { setStatus } from '../actions/playerActions'
-import audioPlayer from '../Utils/AudioPlayer'
+import { setStatus } from '../../../actions/playerActions'
+import audioPlayer from '../../../Utils/AudioPlayer'
 
 class Player extends React.Component {
     constructor(p) {

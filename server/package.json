@@ -2,6 +2,7 @@
   "name": "cloudsdalefm-panel-api",
   "version": "1.0.0",
   "main": "index.js",
+  "license": "MPL-2.0",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",

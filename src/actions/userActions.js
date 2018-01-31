@@ -1,5 +1,6 @@
 import { DISCORD_USER_DATA_URL } from '../Utils/Constants'
 import api from '../Api/api'
+import audioPlayer from '../Utils/AudioPlayer'
 
 export function setLogged(is) {
     return {
@@ -29,6 +30,11 @@ export function updateUserData(data) {
 export function logoutUser() {
     return dispatch => {
         localStorage.clear()
+        audioPlayer.stopRefreshing()
+        dispatch({
+            type: "STATUS_CHANGE",
+            payload: "PAUSED"
+        })
         dispatch({
             type: "CHANGE_LOGIN",
             payload: false
