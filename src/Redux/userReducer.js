@@ -1,12 +1,12 @@
 /* eslint-disable default-case */
 const initialState = { 
-    logged: true, // false - don't forget
+    logged: false, // false - don't forget
     username: null,
     discriminator: null,
     discordToken: null,
     id: null,
-    admin: true, // null - to fix these xD
-    adminToken: 'jYU5dXeXDL2c9EFTrQ5y2lg4ThkoVU7L',
+    admin: null, // null - to fix these xD
+    adminToken: 'Qi5Nrmp7MmMBUgbUlhSN58qlV7WLLGTC',
     connData: {
         host: null, 
         port: 8080, 

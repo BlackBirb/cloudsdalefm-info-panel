@@ -9,6 +9,8 @@ export default {
     },
     player: { // remove IP
         nowPlaying: () => 
-            axios.get("http://188.116.8.133/api/data/playing").then(res => res.data)
+            axios.get("http://188.116.8.133/api/data/playing").then(res => res.data),
+        like: song => 
+            axios.post("http://188.116.8.133/api/like", {data: "here, i guess", title: song}).then(res => res.data)
     }
 }

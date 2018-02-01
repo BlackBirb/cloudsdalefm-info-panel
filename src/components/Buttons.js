@@ -16,7 +16,6 @@ const getState = () => {
     return state
 }
 
-
 export class LoginButton extends React.Component {
     render() {
         if(this.props.user.logged) {

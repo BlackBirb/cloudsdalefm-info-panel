@@ -19,6 +19,21 @@ export function setLiveData(data) {
     }
 }
 
+export function addLike(song) {
+    return dispatch => {
+        api.player.like(song)
+            .then(data => {
+                // check in data for errors... i think, API is not done yet
+                dispatch({
+                    type: "DATA_UPDATE", payload: {
+                        likes: data.likes // ??
+                    }
+                })
+            })
+            .catch(() => "I don't care just don't error in console")
+    }
+}
+
 export function getLiveData() {
     return dispatch => {
         api.player.nowPlaying()

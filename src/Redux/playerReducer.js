@@ -20,7 +20,7 @@ const playerReducer = (state = initialState, action) => {
             break;
         }
         case "DATA_UPDATE": {
-            state = {...state, track: { ...state.track, ...action.payload, likes: 0 } } // remove likes... api still doesn't send anything
+            state = {...state, track: { ...state.track, ...action.payload, likes: 15 } } // remove likes... api still doesn't send anything
             break;
         }
     }

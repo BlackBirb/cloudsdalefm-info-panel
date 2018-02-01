@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { setStatus } from '../../../actions/playerActions'
 import audioPlayer from '../../../Utils/AudioPlayer'
 
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+
 class Player extends React.Component {
     constructor(p) {
         super(p)
@@ -25,36 +27,31 @@ class Player extends React.Component {
             this.props.dispatch(setStatus("PAUSED"))
     }
 
-    onMouseMove = evn => {
-        const e = evn.nativeEvent
-        if(e.buttons === 1) {
-            this.setVolume((e.offsetX / e.target.clientWidth)*100)
-        }
-    }
-
     setVolume = vol => {
         if(vol < 0) vol = 0
         else if(vol > 100) vol = 100
         audioPlayer.setVolume(vol)
         this.setState({volume: vol})
     }
+    
+    calcVolume = evn => {
+        const e = evn.nativeEvent
+        if(e.buttons === 1) {
+            this.setVolume((e.offsetX / e.target.clientWidth)*100)
+        }
+    }
 
     render() {
         const { player } = this.props
-        return <div className="audioPlayer">
-            <div className="player top">
-                <div className="player buttons" role="button" tabIndex="0" id={player.status} onClick={this.onClick} />
-                <div className="player info">
-                    <div className="player artist">{player.track.artist}</div>
-                    <div className="player title">{player.track.title}</div>
+        return <div className={this.props.className ? this.props.className : ""}>
+            <div className="audioPlayer">
+                <span className="font8 defaultCursor">Posłuchaj radia:</span>
+                <div className="player top center both">
+                    <div className="player buttons pointer" role="button" tabIndex="0" id={player.status} onClick={this.onClick} />
                 </div>
-            </div>
-            <div className="player songInfo">
-            <span>{player.track.likes}</span> Likes | <span>{player.track.listeners}</span> Listeners
-                
-            </div>
-            <div className="player slider" onMouseMove={this.onMouseMove}>
-                <div className="player sliderInner" style={{width: `${this.state.volume}%`}} />
+                <div className="player slider pointer" onMouseMove={this.calcVolume} onMouseDown={this.calcVolume}>
+                    <div className="player sliderInner" style={{width: `${this.state.volume}%`}} />
+                </div>
             </div>
         </div>
     }

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { JoinButton } from '../Buttons'
 import Header from '../Header'
 
-import { fetchUserData } from '../../actions/userActions'
+import { fetchUserData, authAsAdmin } from '../../actions/userActions'
 
 class HomePage extends React.Component {
     componentWillMount() { // because redirect after authorize doesn't run this in APP and i'm too lazy to find better way
@@ -15,6 +15,13 @@ class HomePage extends React.Component {
         }
     }
     render() {
+        if (this.props.user.logged && this.props.user.discordToken && this.props.user.admin === null) {
+            this.props.dispatch(authAsAdmin({
+                id: this.props.user.id,
+                token: this.props.user.discordToken
+            }))
+        }
+
         const links = [
             { url: "https://www.facebook.com/cloudsdaleFM.net", name: "facebook" },
             { url: "https://twitter.com/cloudsdalefm", name: "twitter" },

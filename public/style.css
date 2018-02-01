@@ -22,11 +22,68 @@ a {
 .verticalSpacer {
     background: rgba(255, 255, 255, 0.5);
     width: 1px;
-    margin: 15px 4px;
+    margin: 15px 25px;
 }
 
 .bold {
     font-weight: bold;
+}
+
+.font5 {
+    font-size: .5em
+}
+.font6 {
+    font-size: .5em
+}
+.font8 {
+    font-size: .8em
+}
+
+.flexColumn {
+    flex-direction: column;
+}
+
+.center {
+    display: flex;
+}
+
+.center.both {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.center.width {
+    align-items: center;
+    align-content: center;
+}
+.center.height {
+    justify-content: center;
+}
+
+.spaced {
+    margin: 5px;
+}
+
+.greyBG {
+    background-color: rgb(183, 188, 196);
+}
+.greenBG {
+    background-color: #00f076;
+}
+.blueBG {
+    background-color:#2979b9;
+}
+.redBG {
+    background-color: #f63a45;
+}
+
+.defaultCursor {
+    cursor: default;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 .header {
@@ -209,41 +266,53 @@ p.auth.contentError {
     color: lightblue;
 }
 
+
+.contentElement {
+    display: inline-flex;
+    margin: 15px;
+}
+
 .audioPlayer {
     display: inline-block;
-    padding: 10px;
-    margin: 0px 50px;
 }
 
 .player.top {
     display: flex;
-    width: 300px;
 }
 
 .player.buttons {
-    min-width: 50px;
-    padding: 5px;
-    border-radius: 2px;
+    min-width: 35px;
+    height: 35px;
+    margin: 5px 15px;
+    border-radius: 5px;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+
 }
 
 .player.buttons:hover {
-    background: #214a6b75;
+    background-color: #214a6b75;
 }
 .player.buttons:active {
-    background: #214a6b;
+    background-color: #214a6b;
 }
 
 #PAUSED.buttons {
-    background: rgb(183, 188, 196);
+    /* background: rgb(183, 188, 196); */
+    background-image: url("/images/player/play.png")
 }
 #PLAYING.buttons {
-    background: #00f076;
+    /* background: #00f076; */
+    background-image: url("/images/player/pause.png")
 }
 #LOADING.buttons {
-    background:#2979b9;
+    /* background:#2979b9; */
+    background-image: url("/images/player/loading.gif")
 }
 #ERROR.buttons {
-    background: #f63a45;
+    /* background: #f63a45; */
+    background-image: url("/images/player/failed.png")
 }
 
 .player.info {
@@ -262,44 +331,32 @@ p.auth.contentError {
     font-size: .9em;
 }
 
-.player.slider {
-    margin: 7px;
-    margin-bottom: 0px;
-    background: #9accf5;
+.slider {
+    margin-top: 7px;
     overflow: hidden;
     border-radius: 5px;
 }
+.sliderInner {
+    height: 10px;
+    pointer-events: none;
+
+}
+
+.player.slider {
+    background: #9accf5;
+}
 
 .player.sliderInner {
-    height: 10px;
     background: #00adff;
-    pointer-events: none;
-}
-
-.player.songInfo {
-    font-size: 0.7em;
-    margin: 5px 0px 0px 5px;
-}
-.player.songInfo > span {
-    font-weight: bold;
 }
 
 .admin.topBar {
-    width: 100%;
     display: flex;
+    padding: 0px 50px;
     background: rgba(66, 112, 148, 0.6);
 }
 
-.connData.container {
-    display: inline-block;
-    margin: 15px;
-    margin-left: auto;
-    margin-right: 50px;
-}
 .connData.elementsContainer {
-    align-items: center;
-    align-content: center;
-    display: flex;
     height: 100%;
     width: 100%;
 }
@@ -313,4 +370,21 @@ p.auth.contentError {
     flex-direction: column;
     font-size: .8em;
     margin-right: 10px;
+}
+
+.likesCount {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.defaultButton {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+.likeButton:hover {
+    background-color: #00c763;
 }
